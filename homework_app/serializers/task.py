@@ -1,12 +1,17 @@
-from rest_framework import serializers
-from homework_app.models.task import Task, SubTask, Category
 from datetime import date
+
+from rest_framework import serializers
+
+from homework_app.models.task import Category
+from homework_app.models.task import SubTask, Task
 
 
 class SubTaskCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubTask
         read_only_fields = ('created_at',)
+
+
 
 
 class CategoryCreateSerializer(serializers.ModelSerializer):
@@ -49,8 +54,3 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
         fields = ['title', 'description', 'deadline']
-
-    def validate_deadline(self, value):
-        if value < date.today():
-            raise serializers.ValidationError("Дата не может быть в прошлом.")
-        return value
