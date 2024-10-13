@@ -1,6 +1,9 @@
-from rest_framework import serializers
-from homework_app.models.task import Task, SubTask, Category
 from datetime import date
+
+from rest_framework import serializers
+
+from homework_app.models.task import Category
+from homework_app.models.task import SubTask, Task
 
 
 class SubTaskCreateSerializer(serializers.ModelSerializer):

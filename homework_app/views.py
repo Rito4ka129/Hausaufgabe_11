@@ -1,11 +1,8 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models.task import SubTask
-from homework_app.serializers.task import SubTaskDetailSerializer
+from .serializers.task import SubTaskDetailSerializer
 from django.http import Http404
 
 class SubTaskListCreateView(APIView):
