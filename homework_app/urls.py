@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import SubTaskListCreateView, SubTaskDetailUpdateDeleteView
+from rest_framework import routers
+from homework_app.views.category_views import CategoryViewSet
 
 
-urlpatterns = [
 
-    path('subtasks/', SubTaskListCreateView.as_view(), name='subtask-list-create'),
-    path('subtasks/<int:pk>/', SubTaskDetailUpdateDeleteView.as_view(), name='subtask-detail-update-delete'),
-]
+router = routers.DefaultRouter()
+router.register(r'categories', CategoryViewSet)
+urlpatterns = router.urls
 
